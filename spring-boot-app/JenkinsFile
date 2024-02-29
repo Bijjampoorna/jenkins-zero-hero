@@ -39,7 +39,7 @@ pipeline{
                 script{
                     sh 'cd spring-boot-app '
                     sh 'docker build -t ${DOCKER_IMAGE} .'
-                    def docker.image("${DOCKER_IMAGE}")
+                    
                     docker.withRegistry('',"docker-cred"){
                         dockerImage.push()
                     }
